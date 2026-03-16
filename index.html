@@ -9,6 +9,9 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
+<!-- Social Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
 <style>
 
 *{
@@ -134,6 +137,7 @@ color:white;
 letter-spacing:3px;
 font-size:12px;
 transition:0.3s;
+cursor:pointer;
 }
 
 .button:hover{
@@ -143,30 +147,100 @@ color:black;
 
 /* SOCIAL */
 
-.social{
+.social-intro{
 margin-top:70px;
+margin-bottom:25px;
+font-size:14px;
+opacity:0.7;
+}
+
+.social{
 display:flex;
 justify-content:center;
-gap:40px;
-font-size:14px;
-letter-spacing:2px;
-opacity:0.8;
+gap:35px;
 }
 
 .social a{
 color:white;
-text-decoration:none;
 transition:0.3s;
 }
 
 .social a:hover{
-opacity:0.5;
+transform:translateY(-3px);
+opacity:0.7;
 }
+
+.social i{
+width:26px;
+height:26px;
+}
+
+/* FOOTER */
 
 footer{
 margin-top:40px;
 font-size:12px;
 opacity:0.5;
+}
+
+/* FORM MODAL */
+
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+justify-content:center;
+align-items:center;
+z-index:20;
+}
+
+.modal-content{
+background:#111;
+padding:40px;
+width:90%;
+max-width:500px;
+border:1px solid #333;
+}
+
+.modal-content h3{
+margin-bottom:20px;
+font-family:'Playfair Display', serif;
+}
+
+.modal-content input,
+.modal-content textarea,
+.modal-content select{
+width:100%;
+margin-bottom:15px;
+padding:10px;
+background:#0a0a0a;
+border:1px solid #333;
+color:white;
+}
+
+.modal-content button{
+padding:12px 24px;
+border:1px solid white;
+background:none;
+color:white;
+cursor:pointer;
+}
+
+.modal-content button:hover{
+background:white;
+color:black;
+}
+
+.close{
+position:absolute;
+top:20px;
+right:30px;
+font-size:22px;
+cursor:pointer;
 }
 
 </style>
@@ -225,22 +299,26 @@ MUMBAI, INDIA
 For brand partnerships, acting opportunities, and creative collaborations.
 </p>
 
-<a class="button" href="GOOGLE_FORM_LINK" target="_blank">
+<div class="button" onclick="openForm()">
 COLLABORATE
-</a>
+</div>
+
+<div class="social-intro">
+Connect with me on socials
+</div>
 
 <div class="social">
 
 <a href="mailto:Contact@aishwaryapriyaprasad.com">
-EMAIL
+<i data-lucide="mail"></i>
 </a>
 
 <a href="https://www.instagram.com/aishwarya_priyaprasad/" target="_blank">
-INSTAGRAM
+<i data-lucide="instagram"></i>
 </a>
 
-<a href="https://www.youtube.com/@aishwarya_priyaprasad" target="_blank">
-YOUTUBE
+<a href="https://www.youtube.com/@aishwaryapriyaprasad" target="_blank">
+<i data-lucide="youtube"></i>
 </a>
 
 </div>
@@ -250,6 +328,58 @@ YOUTUBE
 </footer>
 
 </section>
+
+
+<!-- COLLABORATE FORM -->
+
+<div class="modal" id="formModal">
+
+<div class="modal-content">
+
+<span class="close" onclick="closeForm()">✕</span>
+
+<h3>Collaboration Inquiry</h3>
+
+<form action="mailto:aishwaryasurve32@gmail.com" method="POST" enctype="text/plain">
+
+<input type="text" name="Name or Company" placeholder="Name / Company" required>
+
+<input type="email" name="Email" placeholder="Email" required>
+
+<input type="text" name="Phone" placeholder="Phone / WhatsApp">
+
+<select name="Project Type">
+<option>Project Type</option>
+<option>Brand Collaboration</option>
+<option>Acting Project</option>
+<option>Interview / Podcast</option>
+<option>Other</option>
+</select>
+
+<textarea name="Project Details" rows="4" placeholder="Project Details"></textarea>
+
+<button type="submit">Send Inquiry</button>
+
+</form>
+
+</div>
+
+</div>
+
+
+<script>
+
+lucide.createIcons();
+
+function openForm(){
+document.getElementById("formModal").style.display="flex";
+}
+
+function closeForm(){
+document.getElementById("formModal").style.display="none";
+}
+
+</script>
 
 </body>
 </html>
